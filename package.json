@@ -8,7 +8,15 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "pnpm lint:tsc && pnpm lint:eslint && pnpm lint:prettier",
+    "lint:tsc": "tsc --noEmit",
+    "lint:eslint": "eslint ./src/**/*.ts",
+    "lint:prettier": "prettier -c ./src/**/*.ts",
+    "fix": "pnpm fix:prettier && pnpm fix:eslint && pnpm lint:tsc",
+    "fix:eslint": "pnpm lint:eslint --fix",
+    "fix:prettier": "pnpm lint:prettier -w",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "Flisan <me@f4n.dev>",
@@ -23,6 +31,11 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
-    "eslint": "^8.24.0"
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
   }
 }

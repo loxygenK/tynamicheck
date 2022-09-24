@@ -1,0 +1,6 @@
+{
+  "./src/**/*.ts": [
+    "pnpm eslint --fix",
+    "prettier -cw"
+  ]
+}
