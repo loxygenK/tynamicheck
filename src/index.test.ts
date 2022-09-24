@@ -1,4 +1,4 @@
-import { someFantasticLibrary } from "./index";
+import { someFantasticLibrary } from ".";
 
 describe("Test environment", () => {
   it("is working", () => {
