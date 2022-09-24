@@ -3,7 +3,7 @@ import { DefinedType } from "./type-definition";
 // Some test cases have no assertion. This is intentional because they are meant to
 // check whether the type checking is working properly, and it cannot be checked
 // on the runtime of tests.
-// However, the failure of type checking can be found during test since the jest checkstype
+// However, the failure of type checking can be found during test since the jest checks
 // type before the test.
 
 describe("DefinedType", () => {
