@@ -17,6 +17,8 @@ jobs:
       fail-fast: false
 
     steps:
+      - uses: actions/checkout@v3
+
       - uses: "./.github/actions/prepare-env"
 
       - run: pnpm lint:${{ matrix.command }}
