@@ -12,6 +12,7 @@ runs:
 
     - name: Get pnpm store path
       id: pnpm
+      shell: bash
       run: |
         echo "::set-output name=store_dir::$(pnpm store path)"
 
@@ -23,5 +24,6 @@ runs:
           - ${{ runner.os }}-pnpm-
 
     - name: "Install dependencies"
+      shell: bash
       run: |
         pnpm install
