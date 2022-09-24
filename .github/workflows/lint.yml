@@ -1,0 +1,27 @@
+name: Linting
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        command:
+          - tsc
+          - eslint
+          - prettier
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Prepare the repository environment
+        uses: "./.github/actions/prepare-env"
+
+      - run: pnpm lint:${{ matrix.command }}

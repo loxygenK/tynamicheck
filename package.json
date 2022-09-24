@@ -2,6 +2,7 @@
   "name": "tynamicheck",
   "version": "0.1.0",
   "description": "",
+  "packageManager": "pnpm@7.12.2",
   "main": "dist/index.js",
   "files": [
     "dist"
