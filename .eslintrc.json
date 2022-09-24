@@ -14,8 +14,17 @@
     "sourceType": "module"
   },
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "simple-import-sort"
   ],
   "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "no-console": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": true
+    }
   }
 }
