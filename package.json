@@ -8,6 +8,13 @@
   ],
   "scripts": {
     "build": "tsc",
+    "lint": "pnpm lint:tsc && pnpm lint:eslint && pnpm lint:prettier",
+    "lint:tsc": "tsc --noEmit",
+    "lint:eslint": "eslint ./src/**/*.ts",
+    "lint:prettier": "prettier -c ./src/**/*.ts",
+    "fix": "pnpm fix:prettier && pnpm fix:eslint && pnpm lint:tsc",
+    "fix:eslint": "pnpm lint:eslint --fix",
+    "fix:prettier": "pnpm lint:prettier -w",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
