@@ -21,6 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: "./.github/actions/prepare-env"
+      - name: Prepare the repository environment
+        uses: "./.github/actions/prepare-env"
 
       - run: pnpm lint:${{ matrix.command }}
