@@ -38,6 +38,21 @@ describe("Object match tester", () => {
     expect(mockNextFn).not.toBeCalled();
   });
 
+  it("should fall on null value", () => {
+    const definition = { forObject: "string" };
+    const testcase = null;
+
+    const { result, mockNextFn } = invokeTester(definition, testcase);
+
+    expect(result).toStrictEqual({
+      result: "failure",
+      reason: "Expected object, received null.",
+      definition,
+      testcase,
+    } as FailureTestResult);
+    expect(mockNextFn).not.toBeCalled();
+  });
+
   it("should fail if the given value does not have fields which is required by the definition", () => {
     const definition = { a: "string", b: "string", c: "string" };
     const testcase = { a: "value" };
@@ -81,7 +96,7 @@ describe("Object match tester", () => {
   it("should decline if the definition is not for object", () => {
     const { result, mockNextFn } = invokeTester("string", {});
 
-    expect(result.result).toBe("success");
+    expect(result.result).toBe("declined");
     expect(mockNextFn).not.toBeCalled();
   });
 });
