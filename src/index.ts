@@ -1,1 +1,2 @@
-export * from "./definitions/type";
+export * from "./builtin";
+export * from "./definitions";

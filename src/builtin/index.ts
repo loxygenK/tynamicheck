@@ -1,4 +1,4 @@
-import { Definition } from "../definitions/type";
+import { Definition } from "../definitions";
 import { arrayDefinitionTester } from "./array/tester";
 import { ArrayDefinition, ArrayDefinitionToType } from "./array/type";
 import { objectDefinitionTester } from "./object/tester";
