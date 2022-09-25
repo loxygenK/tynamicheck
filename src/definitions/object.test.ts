@@ -1,23 +1,16 @@
-// Some test cases have no assertion. This is intentional because they are meant to
-// check whether the type checking is working properly, and it cannot be checked
-// on the runtime of tests.
-// However, the failure of type checking can be found during test since the jest checks
-// type before the test.
-
 import { DefinedType } from "./index";
 
-describe("DefinedType", () => {
-  it("can be generated from one-level constant", () => {
-    const typeDefintion = {
+describe("Object definition", function () {
+  it("can generate one-level type", () => {
+    const typeDefinition = {
       a: "string",
       b: "number",
       c: "bigint",
       d: "symbol",
     } as const;
+    type Defined = DefinedType<typeof typeDefinition>;
 
-    type Generated = DefinedType<typeof typeDefintion>;
-
-    const _variable: Generated = {
+    const _assert: Defined = {
       a: "This is a string",
       b: 123456,
       c: BigInt(789012),
@@ -25,7 +18,7 @@ describe("DefinedType", () => {
     };
   });
 
-  it("can be generated from nested constant", () => {
+  it("can generate nested objects", () => {
     const partialDefinition = {
       id: "string",
       name: "string",
@@ -33,15 +26,15 @@ describe("DefinedType", () => {
       profileUrl: "string",
     } as const;
 
-    const typeDefintion = {
+    const typeDefinition = {
       id: "string",
       caption: "string",
       author: partialDefinition,
     } as const;
 
-    type Generated = DefinedType<typeof typeDefintion>;
+    type Generated = DefinedType<typeof typeDefinition>;
 
-    const _variable: Generated = {
+    const _assert: Generated = {
       id: "image-1234abcd",
       caption: "A picture of some beautiful flowers",
       author: {
@@ -73,22 +66,5 @@ describe("DefinedType", () => {
 
     expect(variable.levelOne).toBe("reassigned-levelOne");
     expect(variable.nesting.levelTwo).toBe("reassigned-levelTwo");
-  });
-
-  it("generates array type", () => {
-    const typeDefinition = {
-      levelOne: "string",
-      elements: {
-        $Array: {
-          id: "number",
-          name: "string",
-        },
-      },
-    } as const;
-
-    const variable: DefinedType<typeof typeDefinition> = {
-      levelOne: "unchanged-levelOne",
-      elements: [{ id: 123, name: "name" }],
-    };
   });
 });
