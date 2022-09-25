@@ -1,9 +1,9 @@
-import { Definition } from "./type-definition";
+import { DefinedType, Definition } from "./index";
 
 export type ArrayDefinition = {
   $Array: Definition;
 };
 
 export type ArrayDefinitionToType<T extends ArrayDefinition> = Array<
-  T["$Array"]
+  DefinedType<T["$Array"]>
 >;
