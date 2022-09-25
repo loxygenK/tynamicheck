@@ -4,22 +4,21 @@ import {
   TestResult,
   ValueMatchTester,
 } from "../../definitions";
-import { Definition } from "../../definitions/type";
 
 export type TesterInvoker = (
-  definition: Definition,
+  definition: unknown,
   testcase: unknown,
   mockNextResult?: FinishedTestResult | NextFunction
 ) => TesterInvokeResult;
 
 export type TesterInvokeResult = {
   result: TestResult;
-  mockNextFn: jest.Mock<TestResult, [Definition, unknown]>;
+  mockNextFn: jest.Mock<TestResult, [unknown, unknown]>;
 };
 
 export function createTesterInvoker(tester: ValueMatchTester): TesterInvoker {
   return (
-    definition: Definition,
+    definition: unknown,
     testcase: unknown,
     mockNextResult?: FinishedTestResult | NextFunction
   ) => {

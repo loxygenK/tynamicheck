@@ -1,11 +1,10 @@
-import { Definition } from "../type";
 import { FinishedTestResult, TestResult } from "./test-result";
 
 /**
  * The function type to receive request testing further.
  */
 export type NextFunction = (
-  definition: Definition,
+  definition: unknown,
   testcase: unknown
 ) => FinishedTestResult;
 
@@ -24,9 +23,5 @@ export interface ValueMatchTester {
    *          If you want the test to run on other tester, return `DeclinedTestResult`
    *          in {@link TestResult}.
    */
-  test(
-    definition: Definition,
-    testcase: unknown,
-    next: NextFunction
-  ): TestResult;
+  test(definition: unknown, testcase: unknown, next: NextFunction): TestResult;
 }

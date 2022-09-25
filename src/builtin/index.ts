@@ -1,4 +1,3 @@
-import { Definition } from "../definitions";
 import { arrayDefinitionTester } from "./array/tester";
 import { ArrayDefinition, ArrayDefinitionToType } from "./array/type";
 import { objectDefinitionTester } from "./object/tester";
@@ -14,7 +13,7 @@ export type BuiltinDefinitions =
   | ObjectDefinition
   | PrimitiveDefinition;
 
-export type BuiltInDefinedType<T extends Definition> = T extends ArrayDefinition
+export type BuiltInDefinedType<T> = T extends ArrayDefinition
   ? ArrayDefinitionToType<T>
   : T extends ObjectDefinition
   ? ObjectDefinitionToType<T>
