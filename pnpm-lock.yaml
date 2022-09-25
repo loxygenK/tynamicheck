@@ -10,6 +10,7 @@ specifiers:
   eslint-plugin-simple-import-sort: ^8.0.0
   husky: ^8.0.1
   jest: ^29.0.3
+  jest-extended: ^3.1.0
   lint-staged: ^13.0.3
   prettier: ^2.7.1
   ts-jest: ^29.0.2
@@ -30,6 +31,7 @@ devDependencies:
   eslint-plugin-simple-import-sort: 8.0.0_eslint@8.24.0
   husky: 8.0.1
   jest: 29.0.3_6u5oorsycb6tj4irec3byro3vi
+  jest-extended: 3.1.0_jest@29.0.3
   lint-staged: 13.0.3
   prettier: 2.7.1
   ts-jest: 29.0.2_jksntdpmkmo5cthob65gehuuvi
@@ -2106,6 +2108,17 @@ packages:
       '@types/node': 18.7.19
       jest-mock: 29.0.3
       jest-util: 29.0.3
+    dev: true
+
+  /jest-extended/3.1.0_jest@29.0.3:
+    resolution: {integrity: sha512-BbuAVUb2dchgwm7euayVt/7hYlkKaknQItKyzie7Li8fmXCglgf21XJeRIdOITZ/cMOTTj5Oh5IjQOxQOe/hfQ==}
+    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+    peerDependencies:
+      jest: '>=27.2.5'
+    dependencies:
+      jest: 29.0.3_6u5oorsycb6tj4irec3byro3vi
+      jest-diff: 29.0.3
+      jest-get-type: 29.0.0
     dev: true
 
   /jest-get-type/29.0.0:
