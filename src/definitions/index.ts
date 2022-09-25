@@ -1,22 +1,13 @@
-import { ArrayDefinition, ArrayDefinitionToType } from "./builtin/array/type";
-import {
-  ObjectDefinition,
-  ObjectDefinitionToType,
-} from "./builtin/object/type";
-import {
-  PrimitiveDefinition,
-  PrimitiveDefinitionToType,
-} from "./builtin/primitive/type";
+import { BuiltInDefinedType, BuiltinDefinitions } from "./builtin";
 
-export type Definition =
-  | ArrayDefinition
-  | ObjectDefinition
-  | PrimitiveDefinition;
+export type Definition<T extends Array<unknown> = [BuiltinDefinitions]> =
+  T[number];
 
-export type DefinedType<T extends Definition> = T extends ArrayDefinition
-  ? ArrayDefinitionToType<T>
-  : T extends ObjectDefinition
-  ? ObjectDefinitionToType<T>
-  : T extends PrimitiveDefinition
-  ? PrimitiveDefinitionToType<T>
+export type DefinedType<
+  D extends Definition,
+  T extends Array<unknown> = [BuiltInDefinedType<D>]
+> = T extends [infer Head, ...infer Tail]
+  ? [Head] extends [never]
+    ? DefinedType<D, Tail>
+    : Head
   : never;
