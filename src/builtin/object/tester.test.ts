@@ -1,4 +1,4 @@
-import { FailureTestResult, testFailure, testSuccess } from "../../../check";
+import { FailureTestResult, testFailure, testSuccess } from "../../definitions";
 import { createTesterInvoker } from "../../helper/tests/test-match-tester";
 import { objectDefinitionTester } from "./tester";
 

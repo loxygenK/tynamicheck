@@ -3,7 +3,7 @@ import {
   NextFunction,
   TestResult,
   ValueMatchTester,
-} from "../../check";
+} from "../../definitions";
 import { Definition } from "../../definitions/type";
 
 export type TesterInvoker = (
