@@ -1,13 +1,52 @@
 import { Definition } from "../../definitions";
-import { TestResult } from "../test-result";
+import {
+  declineTest,
+  testFailure,
+  TestResult,
+  testSuccess,
+} from "../test-result";
 import { NextFunction, ValueMatchTester } from "../tester";
+import { pipe } from "../utils/pipe-result";
+
+const availableTypes = ["string", "number", "bigint", "symbol"];
+const unavailableTypes = ["function", "object", "undefined"];
+const handlingTypes = [...availableTypes, ...unavailableTypes];
 
 export const primitiveDefinitionTester: ValueMatchTester = {
   test(
-    _definition: Definition,
-    _testcase: unknown,
+    definition: Definition,
+    testcase: unknown,
     _next: NextFunction
   ): TestResult {
-    throw new Error("Unimplemented");
+    if (handlingTypes.indexOf(definition) === -1) {
+      return declineTest();
+    }
+
+    if (typeof definition !== "string") {
+      return declineTest();
+    }
+
+    return pipe(() => testUnavailableTypes(definition))
+      .then(() => testCaseMatches(definition, testcase))
+      .evaluate();
   },
 };
+
+function testUnavailableTypes(definition: Definition): TestResult {
+  const unavailableTypeUsed = unavailableTypes.indexOf(definition) !== -1;
+
+  return unavailableTypeUsed
+    ? testFailure(`The type '${definition}' cannot be used as a type.`, {
+        definition,
+      })
+    : testSuccess();
+}
+
+function testCaseMatches(definition: string, testcase: unknown): TestResult {
+  return typeof testcase === definition
+    ? testSuccess()
+    : testFailure(`Expected ${definition}, received ${typeof testcase}.`, {
+        definition,
+        testcase,
+      });
+}
