@@ -2,6 +2,14 @@ import { Definition } from "../definitions";
 import { FinishedTestResult, TestResult } from "./test-result";
 
 /**
+ * The function type to receive request testing further.
+ */
+export type NextFunction = (
+  definition: Definition,
+  testcase: unknown
+) => FinishedTestResult;
+
+/**
  * Tests if any given value matches to the given definition.
  */
 export interface ValueMatchTester {
@@ -19,6 +27,6 @@ export interface ValueMatchTester {
   test(
     definition: Definition,
     testcase: unknown,
-    next: (definition: Definition, testcase: unknown) => FinishedTestResult
+    next: NextFunction
   ): TestResult;
 }
