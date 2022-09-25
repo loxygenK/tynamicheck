@@ -1,4 +1,4 @@
-import { DefinedType } from "./index";
+import { DefinedType } from "../../definitions/type";
 
 describe("Primitive type definition", function () {
   it("can generate primitive type", () => {

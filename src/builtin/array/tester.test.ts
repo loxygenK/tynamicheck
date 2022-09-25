@@ -1,7 +1,11 @@
-import { Definition } from "../../definitions";
+import {
+  FailureTestResult,
+  testFailure,
+  testSuccess,
+} from "../../definitions/tester/test-result";
+import { Definition } from "../../definitions/type";
 import { createTesterInvoker } from "../../helper/tests/test-match-tester";
-import { FailureTestResult, testFailure, testSuccess } from "../test-result";
-import { arrayDefinitionTester } from "./array";
+import { arrayDefinitionTester } from "./tester";
 
 describe("Array tester", () => {
   const invokeTester = createTesterInvoker(arrayDefinitionTester);

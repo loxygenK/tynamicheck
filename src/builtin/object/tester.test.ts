@@ -1,6 +1,6 @@
+import { FailureTestResult, testFailure, testSuccess } from "../../definitions";
 import { createTesterInvoker } from "../../helper/tests/test-match-tester";
-import { FailureTestResult, testFailure, testSuccess } from "../test-result";
-import { objectDefinitionTester } from "./object";
+import { objectDefinitionTester } from "./tester";
 
 describe("Object match tester", () => {
   const invokeTester = createTesterInvoker(objectDefinitionTester);

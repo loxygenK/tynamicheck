@@ -1,12 +1,15 @@
-import { Definition } from "../../definitions";
+import { pipe } from "../../definitions/tester/pipe-result";
 import {
   declineTest,
   testFailure,
   TestResult,
   testSuccess,
-} from "../test-result";
-import { NextFunction, ValueMatchTester } from "../tester";
-import { pipe } from "../utils/pipe-result";
+} from "../../definitions/tester/test-result";
+import {
+  NextFunction,
+  ValueMatchTester,
+} from "../../definitions/tester/tester";
+import { Definition } from "../../definitions/type";
 
 const availableTypes = ["string", "number", "bigint", "symbol"];
 const unavailableTypes = ["function", "object", "undefined"];

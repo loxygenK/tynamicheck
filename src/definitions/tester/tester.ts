@@ -1,4 +1,4 @@
-import { Definition } from "../definitions";
+import { Definition } from "../type";
 import { FinishedTestResult, TestResult } from "./test-result";
 
 /**

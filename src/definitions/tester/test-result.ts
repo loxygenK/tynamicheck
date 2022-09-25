@@ -1,4 +1,4 @@
-import { Definition } from "../definitions";
+import { Definition } from "../type";
 
 /**
  * Represents that the test was successful, meaning the

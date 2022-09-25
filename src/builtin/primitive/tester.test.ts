@@ -1,6 +1,6 @@
+import { FailureTestResult } from "../../definitions/tester/test-result";
 import { createTesterInvoker } from "../../helper/tests/test-match-tester";
-import { FailureTestResult } from "../test-result";
-import { primitiveDefinitionTester } from "./primitive";
+import { primitiveDefinitionTester } from "./tester";
 
 describe("Primitive tester", function () {
   const invokeTester = createTesterInvoker(primitiveDefinitionTester);

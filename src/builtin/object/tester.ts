@@ -1,5 +1,4 @@
-import { Definition } from "../../definitions";
-import { findMap } from "../../helper/iters/findMap";
+import { pipe } from "../../definitions/tester/pipe-result";
 import {
   declineTest,
   FailureTestResult,
@@ -8,10 +7,14 @@ import {
   testFailure,
   TestResult,
   testSuccess,
-} from "../test-result";
-import { NextFunction, ValueMatchTester } from "../tester";
-import { getFromObject } from "../utils/get-from-object";
-import { pipe } from "../utils/pipe-result";
+} from "../../definitions/tester/test-result";
+import {
+  NextFunction,
+  ValueMatchTester,
+} from "../../definitions/tester/tester";
+import { Definition } from "../../definitions/type";
+import { findMap } from "../../helper/iters/findMap";
+import { getFromObject } from "../../utils/get-from-object";
 
 export const objectDefinitionTester: ValueMatchTester = {
   test(
