@@ -15,5 +15,8 @@
   },
   "include": [
     "./src/**/*.ts"
+  ],
+  "files": [
+    "./src/global.d.ts"
   ]
 }
