@@ -1,12 +1,12 @@
 const typeofFn = (anyValue: never) => typeof anyValue;
 type TypeOfReturn = ReturnType<typeof typeofFn>;
 
-export type PrimitiveTypeUnion = Exclude<
+export type PrimitiveDefinition = Exclude<
   TypeOfReturn,
   "object" | "undefined" | "function"
 >;
 
-export type PrimitiveTypeUnionToActualType<T extends PrimitiveTypeUnion> =
+export type PrimitiveDefinitionToType<T extends PrimitiveDefinition> =
   T extends "string"
     ? string
     : T extends "number"
