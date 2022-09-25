@@ -1,6 +1,6 @@
-import { FinishedTestResult, isSuccess } from "../test-result";
+import { TestResult } from "../test-result";
 
-export type PipableFunction = (...args: Array<unknown>) => FinishedTestResult;
+export type PipableFunction = (...args: Array<unknown>) => TestResult;
 
 export function pipe<F extends PipableFunction>(fn: F) {
   return new Pipe(fn);
@@ -22,10 +22,10 @@ export class Pipe<
     return new Pipe<NF, F>(fn, this);
   }
 
-  evaluate(): FinishedTestResult {
+  evaluate(): TestResult {
     if (this.parent !== undefined) {
       const previous = this.parent.evaluate();
-      if (!isSuccess(previous)) {
+      if (previous.result !== "success") {
         return previous;
       }
     }
