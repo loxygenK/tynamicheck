@@ -1,13 +1,22 @@
+import { ArrayDefinition, ArrayDefinitionToType } from "./array";
 import {
   PrimitiveTypeUnion,
   PrimitiveTypeUnionToActualType,
-} from "../utils/primitive-types";
+} from "./types/primitive-types";
 
-export type Types = PrimitiveTypeUnion | TypeDefinition;
-export type TypeDefinition = { [key: string]: Types };
+export type Definition = PrimitiveTypeUnion | ObjectDefinition;
+export type ObjectDefinition = { [key: string]: Definition };
 
-export type DefinedType<T extends TypeDefinition> = {
-  -readonly [key in keyof T]: T[key] extends TypeDefinition
-    ? DefinedType<T[key]>
-    : PrimitiveTypeUnionToActualType<T[key]>;
+export type DefinedType<T extends Definition> = T extends ArrayDefinition
+  ? DefinedType<ArrayDefinitionToType<T>>
+  : T extends ObjectDefinition
+  ? ObjectDefinitionToType<T>
+  : T extends PrimitiveTypeUnion
+  ? PrimitiveTypeUnionToActualType<T>
+  : never;
+
+export type ObjectDefinitionToType<T extends ObjectDefinition> = {
+  -readonly [key in keyof T]: DefinedType<T[key]>;
 };
+
+type DT = DefinedType<{ array: "string" }>;

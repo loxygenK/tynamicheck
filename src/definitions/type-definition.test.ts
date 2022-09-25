@@ -1,3 +1,4 @@
+import { array } from "./array";
 import { DefinedType } from "./type-definition";
 
 // Some test cases have no assertion. This is intentional because they are meant to
@@ -73,5 +74,22 @@ describe("DefinedType", () => {
 
     expect(variable.levelOne).toBe("reassigned-levelOne");
     expect(variable.nesting.levelTwo).toBe("reassigned-levelTwo");
+  });
+
+  it("generates array type", () => {
+    const typeDefinition = {
+      levelOne: "string",
+      elements: {
+        $Array: {
+          id: "number",
+          name: "string",
+        },
+      },
+    } as const;
+
+    const variable: DefinedType<typeof typeDefinition> = {
+      levelOne: "unchanged-levelOne",
+      elements: [{ id: 123, name: "name" }],
+    };
   });
 });
