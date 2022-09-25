@@ -1,6 +1,12 @@
-import { ArrayDefinition, ArrayDefinitionToType } from "./array";
-import { ObjectDefinition, ObjectDefinitionToType } from "./object";
-import { PrimitiveDefinition, PrimitiveDefinitionToType } from "./primitive";
+import { ArrayDefinition, ArrayDefinitionToType } from "./builtin/array/type";
+import {
+  ObjectDefinition,
+  ObjectDefinitionToType,
+} from "./builtin/object/type";
+import {
+  PrimitiveDefinition,
+  PrimitiveDefinitionToType,
+} from "./builtin/primitive/type";
 
 export type Definition =
   | ArrayDefinition

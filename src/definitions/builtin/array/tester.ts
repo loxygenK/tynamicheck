@@ -1,5 +1,3 @@
-import { Definition } from "../../definitions";
-import { findMap } from "../../helper/iters/findMap";
 import {
   declineTest,
   FailureTestResult,
@@ -7,9 +5,11 @@ import {
   testFailure,
   TestResult,
   testSuccess,
-} from "../test-result";
-import { NextFunction, ValueMatchTester } from "../tester";
-import { getFromObject } from "../utils/get-from-object";
+} from "../../../check/test-result";
+import { NextFunction, ValueMatchTester } from "../../../check/tester";
+import { getFromObject } from "../../../check/utils/get-from-object";
+import { findMap } from "../../../helper/iters/findMap";
+import { Definition } from "../../index";
 
 export const arrayDefinitionTester: ValueMatchTester = {
   test(

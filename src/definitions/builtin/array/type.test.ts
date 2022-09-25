@@ -1,4 +1,4 @@
-import { DefinedType } from "./index";
+import { DefinedType } from "../../index";
 
 describe("Array definition", () => {
   it("can generate array type from very simple definition", () => {

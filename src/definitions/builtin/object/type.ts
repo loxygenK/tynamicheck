@@ -1,4 +1,4 @@
-import { DefinedType, Definition } from "./index";
+import { DefinedType, Definition } from "../../index";
 
 export type ObjectDefinition = { [key: string]: Definition };
 
