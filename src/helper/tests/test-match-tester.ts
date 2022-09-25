@@ -4,7 +4,7 @@ import {
   TestResult,
   ValueMatchTester,
 } from "../../check";
-import { Definition } from "../../definitions";
+import { Definition } from "../../definitions/type";
 
 export type TesterInvoker = (
   definition: Definition,

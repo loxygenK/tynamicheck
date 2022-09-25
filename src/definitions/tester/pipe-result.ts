@@ -1,4 +1,4 @@
-import { TestResult } from "../test-result";
+import { TestResult } from "./test-result";
 
 export type PipableFunction = (...args: Array<unknown>) => TestResult;
 

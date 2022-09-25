@@ -5,11 +5,14 @@ import {
   testFailure,
   TestResult,
   testSuccess,
-} from "../../../check/test-result";
-import { NextFunction, ValueMatchTester } from "../../../check/tester";
-import { getFromObject } from "../../../check/utils/get-from-object";
-import { findMap } from "../../../helper/iters/findMap";
-import { Definition } from "../../index";
+} from "../../definitions/tester/test-result";
+import {
+  NextFunction,
+  ValueMatchTester,
+} from "../../definitions/tester/tester";
+import { Definition } from "../../definitions/type";
+import { findMap } from "../../helper/iters/findMap";
+import { getFromObject } from "../../utils/get-from-object";
 
 export const arrayDefinitionTester: ValueMatchTester = {
   test(

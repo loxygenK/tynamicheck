@@ -1,4 +1,4 @@
-import { BuiltInDefinedType, BuiltinDefinitions } from "./builtin";
+import { BuiltInDefinedType, BuiltinDefinitions } from "../builtin";
 
 export type Definition<T extends Array<unknown> = [BuiltinDefinitions]> =
   T[number];

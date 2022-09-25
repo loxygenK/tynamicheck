@@ -2,9 +2,9 @@ import {
   FailureTestResult,
   testFailure,
   testSuccess,
-} from "../../../check/test-result";
-import { createTesterInvoker } from "../../../helper/tests/test-match-tester";
-import { Definition } from "../../index";
+} from "../../definitions/tester/test-result";
+import { Definition } from "../../definitions/type";
+import { createTesterInvoker } from "../../helper/tests/test-match-tester";
 import { arrayDefinitionTester } from "./tester";
 
 describe("Array tester", () => {

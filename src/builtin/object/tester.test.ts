@@ -1,5 +1,5 @@
 import { FailureTestResult, testFailure, testSuccess } from "../../../check";
-import { createTesterInvoker } from "../../../helper/tests/test-match-tester";
+import { createTesterInvoker } from "../../helper/tests/test-match-tester";
 import { objectDefinitionTester } from "./tester";
 
 describe("Object match tester", () => {

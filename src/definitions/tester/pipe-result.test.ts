@@ -1,5 +1,5 @@
-import { FailureTestResult, testFailure, testSuccess } from "../test-result";
 import { pipe } from "./pipe-result";
+import { FailureTestResult, testFailure, testSuccess } from "./test-result";
 
 describe("Pipe result", () => {
   it("should evaluate functions in order", () => {
