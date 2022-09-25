@@ -18,11 +18,11 @@ export const primitiveDefinitionTester: ValueMatchTester = {
     testcase: unknown,
     _next: NextFunction
   ): TestResult {
-    if (handlingTypes.indexOf(definition) === -1) {
+    if (typeof definition !== "string") {
       return declineTest();
     }
 
-    if (typeof definition !== "string") {
+    if (handlingTypes.indexOf(definition) === -1) {
       return declineTest();
     }
 
