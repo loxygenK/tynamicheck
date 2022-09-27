@@ -20,7 +20,7 @@ export const arrayDefinitionTester: ValueMatchTester = {
     testcase: unknown,
     next: NextFunction
   ): TestResult {
-    const arrayDef = getFromObject<Definition>(definition, "$array");
+    const arrayDef = getFromObject<Definition>(definition, "$Array");
     if (arrayDef === undefined) {
       return declineTest();
     }

@@ -7,12 +7,12 @@ const definition = {
   id: "number",
   name: "string",
   follower: {
-    $array: "number",
+    $Array: "number",
   },
   profile: {
     bio: "string",
     externalLink: {
-      $array: "string",
+      $Array: "string",
     },
   },
 } as const;
@@ -31,13 +31,15 @@ const value: Defined = {
 describe("Integrator", () => {
   it("should handle multiple definitions", () => {
     const result = testStructureMatch(definition, value, builtinTesters);
-    expect(result.result).toBe("success");
+    expect(result).toStrictEqual({
+      result: "success",
+    });
   });
 
   it("should type-guard argument if the structure matches", () => {
     const uncheckedValue = value as unknown;
     if (!isStructureMatch(definition, uncheckedValue, builtinTesters)) {
-      fail("'isStructureMatch' should return true here");
+      throw new Error("'isStructureMatch' should return true here");
     }
 
     const _checkedValue: Defined = uncheckedValue;
@@ -80,7 +82,7 @@ describe("Integrator", () => {
           causedBy: {
             result: "failure",
             reason: "Expected string, received number.",
-            definition: definition.profile.externalLink.$array,
+            definition: definition.profile.externalLink.$Array,
             testcase: notMatchingValue.profile.externalLink[0],
           },
         },
