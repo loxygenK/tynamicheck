@@ -1,4 +1,4 @@
-import { Definition } from "../../integrator/type";
+import { DefinedType, Definition } from "../../integrator/type";
 
 export type ObjectDefinition = { [key: string]: Definition };
 
