@@ -2,7 +2,7 @@ import { ArrayDefinitionToType } from "./type";
 
 describe("Array definition", () => {
   it("can generate array type from very simple definition", () => {
-    const definition = { $Array: "string" } as const;
+    const definition = { $array: "string" } as const;
     type Defined = ArrayDefinitionToType<typeof definition>;
 
     const _assert: Defined = ["123", "456"];
@@ -10,10 +10,10 @@ describe("Array definition", () => {
 
   it("can generate array type that contains object", () => {
     const definition = {
-      $Array: {
+      $array: {
         nested: "string",
         moreArray: {
-          $Array: "number",
+          $array: "number",
         },
       },
     } as const;
@@ -27,8 +27,8 @@ describe("Array definition", () => {
 
   it("can generate array type that directly contains array", () => {
     const definition = {
-      $Array: {
-        $Array: "string",
+      $array: {
+        $array: "string",
       },
     } as const;
     type Defined = ArrayDefinitionToType<typeof definition>;

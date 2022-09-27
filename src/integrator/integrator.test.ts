@@ -7,12 +7,12 @@ const definition = {
   id: "number",
   name: "string",
   follower: {
-    $Array: "number",
+    $array: "number",
   },
   profile: {
     bio: "string",
     externalLink: {
-      $Array: "string",
+      $array: "string",
     },
   },
 } as const;
@@ -82,7 +82,7 @@ describe("Integrator", () => {
           causedBy: {
             result: "failure",
             reason: "Expected string, received number.",
-            definition: definition.profile.externalLink.$Array,
+            definition: definition.profile.externalLink.$array,
             testcase: notMatchingValue.profile.externalLink[0],
           },
         },
