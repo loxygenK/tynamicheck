@@ -32,7 +32,7 @@ export function testStructureMatch<D>(
   });
 
   if (finalResult === undefined) {
-    return testFailure("No definition matched to the testcase.", {
+    return testFailure("No definition matched to the definition.", {
       definition,
       testcase,
     });
