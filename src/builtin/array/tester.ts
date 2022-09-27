@@ -10,8 +10,8 @@ import {
   NextFunction,
   ValueMatchTester,
 } from "../../definitions/tester/tester";
-import { Definition } from "../../definitions/type";
 import { findMap } from "../../helper/iters/findMap";
+import { Definition } from "../../integrator/type";
 import { getFromObject } from "../../utils/get-from-object";
 
 export const arrayDefinitionTester: ValueMatchTester = {
