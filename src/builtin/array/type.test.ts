@@ -1,9 +1,9 @@
-import { DefinedType } from "../../integrator/type";
+import { ArrayDefinitionToType } from "./type";
 
 describe("Array definition", () => {
   it("can generate array type from very simple definition", () => {
     const definition = { $Array: "string" } as const;
-    type Defined = DefinedType<typeof definition>;
+    type Defined = ArrayDefinitionToType<typeof definition>;
 
     const _assert: Defined = ["123", "456"];
   });
@@ -17,7 +17,7 @@ describe("Array definition", () => {
         },
       },
     } as const;
-    type Defined = DefinedType<typeof definition>;
+    type Defined = ArrayDefinitionToType<typeof definition>;
 
     const _assert: Defined = [
       { nested: "one", moreArray: [123] },
@@ -31,7 +31,7 @@ describe("Array definition", () => {
         $Array: "string",
       },
     } as const;
-    type Defined = DefinedType<typeof definition>;
+    type Defined = ArrayDefinitionToType<typeof definition>;
 
     const _assert: Defined = [
       ["1-1", "1-2", "1-3"],

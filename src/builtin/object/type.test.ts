@@ -1,4 +1,4 @@
-import { DefinedType } from "../../integrator/type";
+import { ObjectDefinitionToType } from "./type";
 
 describe("Object definition", function () {
   it("can generate one-level type", () => {
@@ -8,7 +8,7 @@ describe("Object definition", function () {
       c: "bigint",
       d: "symbol",
     } as const;
-    type Defined = DefinedType<typeof typeDefinition>;
+    type Defined = ObjectDefinitionToType<typeof typeDefinition>;
 
     const _assert: Defined = {
       a: "This is a string",
@@ -32,7 +32,7 @@ describe("Object definition", function () {
       author: partialDefinition,
     } as const;
 
-    type Generated = DefinedType<typeof typeDefinition>;
+    type Generated = ObjectDefinitionToType<typeof typeDefinition>;
 
     const _assert: Generated = {
       id: "image-1234abcd",
@@ -54,7 +54,7 @@ describe("Object definition", function () {
       },
     } as const;
 
-    const variable: DefinedType<typeof typeDefinition> = {
+    const variable: ObjectDefinitionToType<typeof typeDefinition> = {
       levelOne: "unchanged-levelOne",
       nesting: {
         levelTwo: "unchanged-levelTwo",

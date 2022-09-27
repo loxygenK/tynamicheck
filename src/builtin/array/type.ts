@@ -1,4 +1,4 @@
-import { DefinedType, Definition } from "../../definitions/type";
+import { DefinedType, Definition } from "../../integrator/type";
 
 export type ArrayDefinition = {
   $Array: Definition;
