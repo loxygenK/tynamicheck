@@ -1,8 +1,10 @@
 import {
   FinishedTestResult,
   isSuccess,
+  testFailure,
   ValueMatchTester,
 } from "../definitions";
+import { findMap } from "../helper/iters/findMap";
 import { DefinedType } from "./type";
 
 export function isStructureMatch<D, T extends Array<unknown>>(
@@ -14,9 +16,27 @@ export function isStructureMatch<D, T extends Array<unknown>>(
 }
 
 export function testStructureMatch<D>(
-  _definition: D,
-  _testcase: unknown,
-  _testers: Array<ValueMatchTester>
+  definition: D,
+  testcase: unknown,
+  testers: Array<ValueMatchTester>
 ): FinishedTestResult {
-  throw new Error("Unimplemented");
+  const finalResult = findMap(testers, (tester) => {
+    const testResult = tester.test(
+      definition,
+      testcase,
+      (definition, testcase) =>
+        testStructureMatch(definition, testcase, testers)
+    );
+
+    return testResult.result === "declined" ? undefined : testResult;
+  });
+
+  if (finalResult === undefined) {
+    return testFailure("No definition matched to the testcase.", {
+      definition,
+      testcase,
+    });
+  }
+
+  return finalResult;
 }
