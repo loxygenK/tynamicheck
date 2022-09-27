@@ -3,7 +3,6 @@ import {
   testFailure,
   testSuccess,
 } from "../../definitions/tester/test-result";
-import { Definition } from "../../definitions/type";
 import { createTesterInvoker } from "../../helper/tests/test-match-tester";
 import { arrayDefinitionTester } from "./tester";
 
@@ -52,7 +51,7 @@ describe("Array tester", () => {
   });
 
   it("should fail with causedBy field if the tests for elements failed", () => {
-    const nextFn = (definition: Definition, testcase: unknown) => {
+    const nextFn = (definition: unknown, testcase: unknown) => {
       return testFailure("Nested failure", { definition, testcase });
     };
 
@@ -77,7 +76,7 @@ describe("Array tester", () => {
   });
 
   it("should decline if the definition is not for array", () => {
-    const nextFn = jest.fn((_def: Definition, _case: unknown) => {
+    const nextFn = jest.fn((_def: unknown, _case: unknown) => {
       return testFailure("Boom");
     });
 

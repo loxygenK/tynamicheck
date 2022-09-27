@@ -1,4 +1,4 @@
-import { FailureTestResult } from "../../definitions/tester/test-result";
+import { FailureTestResult } from "../../definitions";
 import { createTesterInvoker } from "../../helper/tests/test-match-tester";
 import { primitiveDefinitionTester } from "./tester";
 

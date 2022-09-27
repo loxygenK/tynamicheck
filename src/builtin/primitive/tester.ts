@@ -9,7 +9,7 @@ import {
   NextFunction,
   ValueMatchTester,
 } from "../../definitions/tester/tester";
-import { Definition } from "../../definitions/type";
+import { Definition } from "../../integrator/type";
 
 const availableTypes = ["string", "number", "bigint", "symbol"];
 const unavailableTypes = ["function", "object", "undefined"];

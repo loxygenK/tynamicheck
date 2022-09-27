@@ -1,5 +1,3 @@
-import { Definition } from "../type";
-
 /**
  * Represents that the test was successful, meaning the
  * given {@link Definition} and given value matches.
@@ -23,7 +21,7 @@ export type FailureTestResult = {
   /**
    * (Optional) What {@link Definition} did not match to the {@link testcase}?
    */
-  definition?: Definition;
+  definition?: unknown;
 
   /**
    * (Optional) What value did not match to the {@link definition} {@link Definition}?
