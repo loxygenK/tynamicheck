@@ -3,8 +3,8 @@ import {
   testFailure,
   testSuccess,
 } from "../../definitions/tester/test-result";
-import { Definition } from "../../definitions/type";
 import { createTesterInvoker } from "../../helper/tests/test-match-tester";
+import { Definition } from "../../integrator/type";
 import { arrayDefinitionTester } from "./tester";
 
 describe("Array tester", () => {

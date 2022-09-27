@@ -1,4 +1,4 @@
-import { DefinedType } from "../../definitions/type";
+import { DefinedType } from "../../integrator/type";
 
 describe("Primitive type definition", function () {
   it("can generate primitive type", () => {

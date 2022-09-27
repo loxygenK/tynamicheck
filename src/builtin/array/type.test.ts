@@ -1,4 +1,4 @@
-import { DefinedType } from "../../definitions/type";
+import { DefinedType } from "../../integrator/type";
 
 describe("Array definition", () => {
   it("can generate array type from very simple definition", () => {

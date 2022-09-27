@@ -1,4 +1,4 @@
-import { DefinedType } from "../../definitions/type";
+import { DefinedType } from "../../integrator/type";
 
 describe("Object definition", function () {
   it("can generate one-level type", () => {
