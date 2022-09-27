@@ -1,12 +1,22 @@
-import { ValueMatchTester } from "../definitions";
+import {
+  FinishedTestResult,
+  isSuccess,
+  ValueMatchTester,
+} from "../definitions";
 import { DefinedType } from "./type";
 
-export function testIsMatches<D, T extends Array<unknown>>(
+export function isStructureMatch<D, T extends Array<unknown>>(
   definition: D,
   testcase: unknown,
-  _testers: Array<ValueMatchTester>
+  testers: Array<ValueMatchTester>
 ): testcase is DefinedType<D, T> {
-  // TODO: Implement
+  return isSuccess(testStructureMatch(definition, testcase, testers));
+}
 
+export function testStructureMatch<D>(
+  _definition: D,
+  _testcase: unknown,
+  _testers: Array<ValueMatchTester>
+): FinishedTestResult {
   throw new Error("Unimplemented");
 }
